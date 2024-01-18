@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CaglaFitHealth.Models.Entity.Subscription>
+
+@{
+    ViewData["Title"] = "Üyelik";
+}
+
+<h1>Üyelik Tanımlama</h1>
+
+<p>
+    <a asp-action="Create">Yeni Üyelik Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Üye
+            </th>
+            <th>
+                Antrenör
+            </th>
+            <th>
+                Üyelik Tarihi
+            </th>
+            <th>
+                Üyelik Süresi (Ay)
+            </th>
+         
+            <th>
+                İşlemler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trainer.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionDuration)
+            </td>
+           
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

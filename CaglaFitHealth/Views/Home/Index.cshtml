@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hoşgeldiniz!</h1>
+    <h4 class="display-4">@ViewBag.MySession</h4>
+    <h4 class="display-4">Çağla Fit&Health Spor Merkezi</h4>
+    <p>Sağlıklı bir yaşam için spor yapmalısınız.</p>
+
+    <a asp-controller="Home" asp-action="Logout">Çıkış Yap</a>
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CaglaFitHealth.Models.Entity.Trainer>
+
+@{
+    ViewData["Title"] = "Antrenör";
+}
+
+<h1>Antrenör Yönetimi</h1>
+
+<p>
+    <a asp-action="Create">Antrenör Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Adı
+            </th>
+            <th>
+                Soyadı
+            </th>
+            <th>
+                Doğum Tarihi
+            </th>
+            <th>
+                Branşı
+            </th>
+            <th>
+                İşlemler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Görüntüle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

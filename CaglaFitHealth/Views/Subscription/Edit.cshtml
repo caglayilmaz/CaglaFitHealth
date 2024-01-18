@@ -1,0 +1,49 @@
+﻿@model CaglaFitHealth.Models.Entity.Subscription
+
+@{
+    ViewData["Title"] = "Düzenle";
+}
+
+<h1>Düzenle</h1>
+
+<h4>Üyelik</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="MemberId" class="control-label">Üye</label>
+                <select asp-for="MemberId" class="form-control" asp-items="ViewBag.Members"></select>
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainerId" class="control-label">Antrenör</label>
+                <select asp-for="TrainerId" class="form-control" asp-items="ViewBag.Trainers"></select>
+                <span asp-validation-for="TrainerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriptionDate" class="control-label">Üyelik Tarihi</label>
+                <input asp-for="SubscriptionDate" class="form-control" />
+                <span asp-validation-for="SubscriptionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriptionDuration" class="control-label">Üyelik Süresi (Ay)</label>
+                <input asp-for="SubscriptionDuration" class="form-control" />
+                <span asp-validation-for="SubscriptionDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
